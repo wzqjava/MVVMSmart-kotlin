@@ -3,6 +3,7 @@ package com.wzq.sample.ui.testnet
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import com.wzq.mvvmsmart.utils.KLog
+import com.wzq.mvvmsmart.utils.ToastUtils
 import com.wzq.sample.base.BaseViewModel
 import com.wzq.sample.bean.User
 import com.wzq.sample.data.source.http.service2.MRequest
@@ -45,7 +46,8 @@ class TestNetViewModel(application: Application) : BaseViewModel(application) {
             }
 
             override fun error(what: Int, throwable: Throwable?) {
-                KLog.e("=====error=========throwable:" + throwable?.message);
+                KLog.e("=====error=========throwable:" + throwable?.message)
+                ToastUtils.showLong("开发者:接口失效,请自由替换开源接口")
             }
 
             override fun reTry(what: Int) {
